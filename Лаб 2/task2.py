@@ -5,8 +5,11 @@ increase = 0.03  # Ежемесячный рост цен
 
 # TODO Рассчитайте подушку безопасности, чтобы протянуть 10 месяцев без долгов
 costs = 0
-for i in range(1, months+1):
-    costs += abs(spend-salary)
+for i in range(months):
+    costs += salary-spend
     spend *= (1+increase)
 
-print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", round(costs))
+if costs>=0:
+    print('Подушка безопасности не нужна')
+else:
+    print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", round(-costs))
