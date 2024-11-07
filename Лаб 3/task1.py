@@ -1,9 +1,9 @@
 # TODO Напишите функцию для поиска индекса товара
 def find_item_ind(lst, el):
     try:
-        for i in range(len(lst)):
-            if lst[i]==el:
-                return lst.index(el)
+        for pair in enumerate(lst):
+            if pair[1]==el:
+                return pair[0]
     except:
         return None
 
